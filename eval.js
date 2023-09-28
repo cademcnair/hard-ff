@@ -27,8 +27,6 @@ const Eval = {
         if (previous != null && current != null && operator != "") {
           if (operator == "+") {
             current = [previous[0] + current[0]]
-          } else if (operator == "==") {
-            current = [previous[0] == current[0] ? 1 : 0]
           }
           operator = ""
         }
@@ -43,9 +41,6 @@ const Eval = {
       const top_parts = parse_line(c.top.replace("if", ""))
       if (this.Code(top_parts)[0] === 1)
         eval(classify(c.content))
-    } else if (c.block_type == "print") {
-      const top_parts = parse_line(c.top.replace("print", ""))
-      console.log(this.Code(top_parts.flat())[0])
     }
   }
 }
